@@ -1,0 +1,755 @@
+{
+	"info": {
+		"_postman_id": "6f3fc1f9-f072-445a-9846-f0a0eb24e308",
+		"name": "Articles API",
+		"description": "Technologies used:\n\n- Docker compose\n    \n- PostgreSQL\n    \n- Ruby on Rails (API only)\n    \n    - Blueprinter (serialization)\n        \n    - Faraday (http client)\n        \n    - Pagy (backend pagination)\n        \n    - Testing\n        \n        - RSpec (testing)\n            \n        - FactoryBot (factories for testing)\n            \n        - Faker (Fake data for testing)\n            \n        - Shoulda Matchers (For Asserts in testing)\n            \n        - SimpleCov (Coverage Report)\n            \n    - Rubocop (Linting)\n        \n    - Dessign Patterns\n        \n        - Service Object\n            \n        - Query Object",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17226051"
+	},
+	"item": [
+		{
+			"name": "Articles",
+			"item": [
+				{
+					"name": "List Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/articles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"articles"
+							]
+						},
+						"description": "Returns a list of articles from the database, if is empty, it gets the articles from the external api and it saves in the database for future requests."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/articles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"articles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"06ff765215212195bee796aebd3ccd4e\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "17f6a664-5f91-4fe5-bbc6-ee358075d7af"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.288488"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=1.24, sql.active_record;dur=60.38, instantiation.active_record;dur=11.49, process_action.action_controller;dur=218.67"
+								},
+								{
+									"key": "vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"status\": {\n        \"code\": 200,\n        \"message\": \"Ok\",\n        \"sub_code\": 20000\n    },\n    \"data\": [\n        {\n            \"id\": 98,\n            \"author\": \"Ryan Young\",\n            \"category\": {\n                \"id\": 1,\n                \"name\": \"general\"\n            },\n            \"content\": \"Geno Auriemma trails only Mike Krzyzewski and Tara VanDerveer on the college basketball all-time wins list. (David Butler II/USA Today)\\r\\nGeno Auriemma joined an elite group of college basketball coac… [+2361 chars]\",\n            \"description\": \"Geno Auriemma trails only Mike Krzyzewski and Tara VanDerveer on the college basketball all-time wins list.\",\n            \"published_at\": \"2024-02-08T03:41:00.000Z\",\n            \"title\": \"UConn’s Geno Auriemma becomes third college coach in history to reach 1,200 career wins - Yahoo Sports\",\n            \"url\": \"https://sports.yahoo.com/uconns-geno-auriemma-becomes-third-college-coach-in-history-to-reach-1200-career-wins-021209514.html\",\n            \"url_to_image\": \"https://s.yimg.com/ny/api/res/1.2/Q1X_FVyg5DMx.Ln6MSrZhw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2024-01/5c3e1220-c627-11ee-ad1d-12679dda85c4\"\n        },\n        {\n            \"id\": 99,\n            \"author\": \"Brittany Shepherd, Isabella Murray\",\n            \"category\": {\n                \"id\": 1,\n                \"name\": \"general\"\n            },\n            \"content\": \"Marianne Williamson suspended her campaign for president, she announced on Wednesday night.\\r\\nThe author and speaker placed a distant third during Tuesday night's Nevada primary, earning just 3% of th… [+5311 chars]\",\n            \"description\": \"The author and speaker placed a distant third during Tuesday night’s primary.\",\n            \"published_at\": \"2024-02-08T03:22:30.000Z\",\n            \"title\": \"Marianne Williamson suspends presidential campaign - ABC News\",\n            \"url\": \"https://abcnews.go.com/Politics/marianne-williamson-suspends-presidential-campaign/story?id=106693762\",\n            \"url_to_image\": \"https://i.abcnewsfe.com/a/65dc75f4-9b99-4037-9601-9a96c9a5e4cc/marianne-williamson-gty-jt-240125_1706228636067_hpMain_16x9.jpg?w=1600\"\n        },\n        {\n            \"id\": 100,\n            \"author\": \"Brande Victorian\",\n            \"category\": {\n                \"id\": 1,\n                \"name\": \"general\"\n            },\n            \"content\": \"[This story contains spoilers from the third season premiere of Abbott Elementary.]\\r\\nMajor change has come to Abbott Elementary as the show’s lead character, Janine Teagues, played by series creator … [+10454 chars]\",\n            \"description\": \"Justin Halpern and Patrick Schumacker discuss what's in store for the third season of the hit ABC sitcom and what its success thus far should signal to the industry.\",\n            \"published_at\": \"2024-02-08T03:00:27.000Z\",\n            \"title\": \"‘Abbott Elementary’ Bosses on Pulling Off That Season 3 Premiere Cameo and Vetting Guest Star Requests: “Sometimes It’s Very Hard to Resist” - Hollywood Reporter\",\n            \"url\": \"http://www.hollywoodreporter.com/tv/tv-features/abbott-elementary-season-3-premiere-quinta-brunson-cameos-guest-stars-1235818848/\",\n            \"url_to_image\": \"https://www.hollywoodreporter.com/wp-content/uploads/2024/02/170819_0618-H-2024.jpg?w=1024\"\n        },\n        {\n            \"id\": 101,\n            \"author\": \"Isabel Rosales, Lauren Mascarenhas\",\n            \"category\": {\n                \"id\": 1,\n                \"name\": \"general\"\n            },\n            \"content\": \"The babys mother sued the hospital in August\\r\\nHospital staff told the parents they couldnt touch or hold their childs body, family says\\r\\nHospital officials say they cant comment due to current litiga… [+6992 chars]\",\n            \"description\": \"A Georgia couple is seeking justice for the death last year of their baby during delivery at a Georgia hospital.\",\n            \"published_at\": \"2024-02-08T02:35:00.000Z\",\n            \"title\": \"Parents seek justice for baby who was decapitated during delivery at a Georgia hospital - CNN\",\n            \"url\": \"https://www.cnn.com/2024/02/06/us/babys-head-detached-during-delivery-ruled-homicide/index.html\",\n            \"url_to_image\": \"https://media.cnn.com/api/v1/images/stellar/prod/still-20363284-3016023-444-still.jpg?c=16x9&q=w_800,c_fill\"\n        },\n        {\n            \"id\": 102,\n            \"author\": \"The Athletic Staff\",\n            \"category\": {\n                \"id\": 1,\n                \"name\": \"general\"\n            },\n            \"content\": \"By Mark Puleo, Stewart Mandel, Chris Vannini, Richard Deitsch and Mike Vorkunov\\r\\nLess than a month after Nick Saban retired from his post at Alabama, ESPN announced Wednesday the legendary coach will… [+4309 chars]\",\n            \"description\": \"Saban, 72, retired from coaching on Jan. 10 after 28 years of coaching, which included seven national championships.\",\n            \"published_at\": \"2024-02-08T02:23:10.000Z\",\n            \"title\": \"Nick Saban to join ‘College GameDay’ cast as analyst, contribute to ESPN’s draft coverage - The Athletic\",\n            \"url\": \"https://theathletic.com/5258569/2024/02/07/nick-saban-college-gameday-espn/\",\n            \"url_to_image\": \"https://cdn.theathletic.com/app/uploads/2024/02/07165547/GettyImages-905492012-scaled.jpg\"\n        },\n        {\n            \"id\": 103,\n            \"author\": \"Kyra Colah\",\n            \"category\": {\n                \"id\": 1,\n                \"name\": \"general\"\n            },\n            \"content\": \"Pakistan heads to the polls Thursday with one of the leading candidates languishing in prison as some reports claim that voter enthusiasm is lacking among the countrys nearly 128 million voters. \\r\\nFo… [+4662 chars]\",\n            \"description\": \"Pakistan is abuzz with anticipation and uncertainty as it gears up for its elections. The political landscape is rife with tensions, raising concerns about possible poll-rigging.\",\n            \"published_at\": \"2024-02-08T01:55:00.000Z\",\n            \"title\": \"Pakistan prepares for pivotal election as one of the leading candidate serves jail time - Fox News\",\n            \"url\": \"https://www.foxnews.com/world/pakistan-prepares-pivotal-election-one-of-the-leading-candidate-serves-jail-time\",\n            \"url_to_image\": \"https://static.foxnews.com/foxnews.com/content/uploads/2024/01/GettyImages-1244400492.jpg\"\n        },\n        {\n            \"id\": 104,\n            \"author\": \"NICHOLAS RICCARDI\",\n            \"category\": {\n                \"id\": 1,\n                \"name\": \"general\"\n            },\n            \"content\": \"WASHINGTON (AP) The fate of former President Donald Trumps attempt to return to the White House is in the hands of the U.S. Supreme Court.\\r\\nOn Thursday, the justices will hear arguments in Trumps app… [+8079 chars]\",\n            \"description\": \"The fate of former President Donald Trump’s attempt to return to the White House is in the hands of the U.S. Supreme Court.  On Thursday, the justices will...\",\n            \"published_at\": \"2024-02-08T01:54:00.000Z\",\n            \"title\": \"Trump's presidential bid hangs in the balance in a Supreme Court case that's broken new legal ground - Yahoo News\",\n            \"url\": \"https://news.yahoo.com/trumps-presidential-bid-hangs-balance-135056396.html\",\n            \"url_to_image\": \"https://s.yimg.com/ny/api/res/1.2/zkJALs9.7uU1C7bCc3QSLA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/ap.org/fbc09a6a2701a1eff70a8c0494ec7417\"\n        },\n        {\n            \"id\": 105,\n            \"author\": \"Joe Leahy\",\n            \"category\": {\n                \"id\": 2,\n                \"name\": \"business\"\n            },\n            \"content\": \"Chinas consumer prices fell at the fastest rate in 15 years in January, missing analysts forecasts and underlining the challenges for policymakers trying to revive investor confidence in the worlds s… [+3747 chars]\",\n            \"description\": \"Analysts warn prolonged price declines will undermine business and consumer confidence\",\n            \"published_at\": \"2024-02-08T03:42:32.000Z\",\n            \"title\": \"China's prices fall at fastest rate in 15 years as economy battles deflation - Financial Times\",\n            \"url\": \"https://www.ft.com/content/14b056b2-ab71-4f32-b829-9493c4bfd650\",\n            \"url_to_image\": \"https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fwww.ft.com%2F__origami%2Fservice%2Fimage%2Fv2%2Fimages%2Fraw%2Fhttps%253A%252F%252Fd1e00ek4ebabms.cloudfront.net%252Fproduction%252Fd2e35004-c901-4a08-9b56-0335d9455728.jpg%3Fsource%3Dnext-article%26fit%3Dscale-down%26quality%3Dhighest%26width%3D700%26dpr%3D1?source=next-opengraph&fit=scale-down&width=900\"\n        },\n        {\n            \"id\": 106,\n            \"author\": \"Julie Coleman\",\n            \"category\": {\n                \"id\": 2,\n                \"name\": \"business\"\n            },\n            \"content\": \"After blowing past Wall Street's expectations for earnings, E.l.f. Beauty CEO Tarang Amin told CNBC's Jim Cramer how the cosmetics company is growing quickly and expanding its consumer base across mu… [+1480 chars]\",\n            \"description\": \"E.l.f. Beauty CEO Tarang Amin told CNBC's Jim Cramer how the cosmetics company is executing huge growth.\",\n            \"published_at\": \"2024-02-08T01:18:00.000Z\",\n            \"title\": \"After a blowout quarter, E.l.f. Beauty CEO details marketing strategies that helped grow its consumer base - CNBC\",\n            \"url\": \"https://www.cnbc.com/2024/02/07/elf-beauty-ceo-describes-how-the-company-is-expanding-consumer-base.html\",\n            \"url_to_image\": \"https://image.cnbcfm.com/api/v1/image/105445999-1536753115863rtsozle.jpg?v=1690921368&w=1920&h=1080\"\n        },\n        {\n            \"id\": 107,\n            \"author\": \"Todd Magel\",\n            \"category\": {\n                \"id\": 2,\n                \"name\": \"business\"\n            },\n            \"content\": \"DES MOINES, Iowa —Des Moines police say they will work together with Hy-Vee on the crime problem at its downtown Court Avenue store. The grocery store is now closing at 6 p.m., but that could also vi… [+1998 chars]\",\n            \"description\": \"An increase in loitering and theft is one of the reasons the downtown Hy-Vee store is now closing at 6 p.m.\",\n            \"published_at\": \"2024-02-08T01:11:00.000Z\",\n            \"title\": \"Police to help Hy-Vee cut down on crime at its downtown store - KCCI Des Moines\",\n            \"url\": \"https://www.kcci.com/article/downtown-des-moines-hyvee-store-closing-early-crime/46675645\",\n            \"url_to_image\": \"https://kubrick.htvapps.com/vidthumb/ed5edbf9-106d-426d-94e3-09fb9ea4d552/f8514323-35ab-487a-ada1-d13ff2897f93.jpg?crop=0.778xw:0.779xh;0.109xw,0&resize=1200:*\"\n        },\n        {\n            \"id\": 108,\n            \"author\": \"Yun Li\",\n            \"category\": {\n                \"id\": 2,\n                \"name\": \"business\"\n            },\n            \"content\": \"Stock futures were little changed in overnight trading Wednesday after the S&amp;P 500 finished the regular session on the brink of the 5,000 milestone.\\r\\nFutures on the Dow Jones Industrial Average w… [+1264 chars]\",\n            \"description\": \"The S&P 500 finished Wednesday's regular session on the brink of the 5,000 milestone.\",\n            \"published_at\": \"2024-02-08T00:38:00.000Z\",\n            \"title\": \"Stock futures are flat in overnight trading, S&P 500 on the brink of 5,000: Live updates - CNBC\",\n            \"url\": \"https://www.cnbc.com/2024/02/07/stock-market-today-live-updates.html\",\n            \"url_to_image\": \"https://image.cnbcfm.com/api/v1/image/107099147-NYSE-Trading-Floor-OB-Photo-220804-CC-PRESS-4.jpg?v=1695593030&w=1920&h=1080\"\n        },\n        {\n            \"id\": 109,\n            \"author\": \"Motley Fool Transcribing\",\n            \"category\": {\n                \"id\": 2,\n                \"name\": \"business\"\n            },\n            \"content\": \"Image source: The Motley Fool.\\r\\nPayPal(PYPL -0.74%)Q4 2023 Earnings CallFeb 07, 2024, 5:00 p.m. ET\\r\\nContents:\\r\\n<ul><li>Prepared Remarks</li><li>Questions and Answers</li><li>Call Participants</li></u… [+53074 chars]\",\n            \"description\": \"PYPL earnings call for the period ending December 31, 2023.\",\n            \"published_at\": \"2024-02-08T00:15:18.000Z\",\n            \"title\": \"PayPal (PYPL) Q4 2023 Earnings Call Transcript - The Motley Fool\",\n            \"url\": \"https://www.fool.com/earnings/call-transcripts/2024/02/07/paypal-pypl-q4-2023-earnings-call-transcript/\",\n            \"url_to_image\": \"https://g.foolcdn.com/editorial/images/1/featured-transcript-logo-template-2023-01-12.jpg\"\n        },\n        {\n            \"id\": 110,\n            \"author\": \"Andrea Vacchiano\",\n            \"category\": {\n                \"id\": 2,\n                \"name\": \"business\"\n            },\n            \"content\": \"A Virginia truck driver recently won a six-figure sum on a lottery ticket that he bought and forgot about.\\r\\nBuena Vista resident Zachary Clements, who bought the scratcher from a gas station called S… [+2142 chars]\",\n            \"description\": \"Buena Vista, Virginia resident Zachary Clements bought a Ca$h Corners Crossword ticket from a gas station and nearly forgot about it. He later found that it was worth $100,000.\",\n            \"published_at\": \"2024-02-08T00:05:00.000Z\",\n            \"title\": \"Virginia truck driver wins $100,000 from lottery ticket he nearly forgot about: 'Pretty excited' - Fox Business\",\n            \"url\": \"https://www.foxbusiness.com/lifestyle/virginia-truck-driver-wins-100000-lottery-ticket-nearly-forgot-pretty-excited\",\n            \"url_to_image\": \"https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2024/02/0/0/zclements.jpg?ve=1&tl=1\"\n        },\n        {\n            \"id\": 111,\n            \"author\": \"Brande Victorian\",\n            \"category\": {\n                \"id\": 3,\n                \"name\": \"entertainment\"\n            },\n            \"content\": \"[This story contains spoilers from the third season premiere of Abbott Elementary.]\\r\\nMajor change has come to Abbott Elementary as the show’s lead character, Janine Teagues, played by series creator … [+10454 chars]\",\n            \"description\": \"Justin Halpern and Patrick Schumacker discuss what's in store for the third season of the hit ABC sitcom and what its success thus far should signal to the industry.\",\n            \"published_at\": \"2024-02-08T03:00:27.000Z\",\n            \"title\": \"‘Abbott Elementary’ Bosses on Pulling Off That Season 3 Premiere Cameo and Vetting Guest Star Requests: “Sometimes It’s Very Hard to Resist” - Hollywood Reporter\",\n            \"url\": \"http://www.hollywoodreporter.com/tv/tv-features/abbott-elementary-season-3-premiere-quinta-brunson-cameos-guest-stars-1235818848/\",\n            \"url_to_image\": \"https://www.hollywoodreporter.com/wp-content/uploads/2024/02/170819_0618-H-2024.jpg?w=1024\"\n        },\n        {\n            \"id\": 112,\n            \"author\": \"Bruce Haring\",\n            \"category\": {\n                \"id\": 3,\n                \"name\": \"entertainment\"\n            },\n            \"content\": \"Mojo Nixon, musician, actor, and radio DJ who became a comedy icon for such songs as “Don Henley Must Die” and “Stuffin’ Martha’s Muffin, died at 66 today of what was termed “a cardiac event.” \\r\\nHis … [+2918 chars]\",\n            \"description\": \"Musician, Actor and Radio DJ Mojo Nixon is dead at 66.\",\n            \"published_at\": \"2024-02-08T02:32:00.000Z\",\n            \"title\": \"Mojo Nixon Dies: Musician/Actor/Radio DJ Dies On Outlaw Country Cruise, Was 66 - Deadline\",\n            \"url\": \"http://deadline.com/2024/02/mojo-nixon-dead-musician-actor-radio-dj-dies-on-outlaw-country-cruise-was-66-obituary-1235818709/\",\n            \"url_to_image\": \"https://deadline.com/wp-content/uploads/2023/02/mojointerview-e1676998690546.jpg?w=1024\"\n        },\n        {\n            \"id\": 113,\n            \"author\": \"Caralynn Matassa\",\n            \"category\": {\n                \"id\": 3,\n                \"name\": \"entertainment\"\n            },\n            \"content\": \"Robert De Niro's grandson died in July 2023.REUTERS/Eric Gaillard\\r\\n<ul><li>Robert De Niro said his 19-year-old grandson's death was \\\"just a shock.\\\"\\r\\n</li><li>Leandro De Niro-Rodriguez died of a drug … [+2286 chars]\",\n            \"description\": \"Leandro De Niro-Rodriguez, the 19-year-old grandson of actor Robert De Niro, died of a drug overdose. He was the son of De Niro's adopted daughter.\",\n            \"published_at\": \"2024-02-08T00:50:00.000Z\",\n            \"title\": \"Robert De Niro says he was in 'disbelief' when he learned his 19-year-old grandson had died: 'It shouldn't have happened' - Yahoo Entertainment\",\n            \"url\": \"https://www.businessinsider.com/robert-de-niro-grandson-cause-of-death-disbelief-leandro-2024-2\",\n            \"url_to_image\": \"https://s.yimg.com/ny/api/res/1.2/daUN8tosqdwHff8D5aQDiw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/insider_articles_922/a7bb678ab508597420f476227f997a13\"\n        },\n        {\n            \"id\": 114,\n            \"author\": \"Olivia Evans\",\n            \"category\": {\n                \"id\": 3,\n                \"name\": \"entertainment\"\n            },\n            \"content\": \"The LGBT+ community is mourning the loss of one of its brightest stars. \\r\\nCecilia Gentili, a transgender advocate and actress, died at the age of 52 on Feb. 6. \\r\\n\\\"Our beloved Cecilia Gentili passed a… [+702 chars]\",\n            \"description\": \"Cecilia Gentili—a renowned LGBT activist known for starring as Miss Orlando on Pose—died on Feb. 6. She was 52.\",\n            \"published_at\": \"2024-02-08T00:16:02.000Z\",\n            \"title\": \"Pose Actress Cecilia Gentili Dead at 52 - E! NEWS\",\n            \"url\": \"https://www.eonline.com/news/1394754/pose-actress-cecilia-gentili-dead-at-52\",\n            \"url_to_image\": \"https://akns-images.eonline.com/eol_images/Entire_Site/202417/rs_1200x1200-240207133521-Ceceilia2.jpg?fit=around%7C1080:1080&output-quality=90&crop=1080:1080;center,top\"\n        },\n        {\n            \"id\": 115,\n            \"author\": \"Carly Thomas\",\n            \"category\": {\n                \"id\": 3,\n                \"name\": \"entertainment\"\n            },\n            \"content\": \"Tish Cyrus is looking back at Hannah Montana, the show that launched her daughter Miley Cyrus‘ career as well as helped her then-husband Billy Ray Cyrus rise to a new level of fame.\\r\\nDuring a recent … [+3164 chars]\",\n            \"description\": \"The singer, who is Miley Cyrus' dad in real life, also played her father on the popular Disney Channel show.\",\n            \"published_at\": \"2024-02-08T00:13:44.000Z\",\n            \"title\": \"Tish Cyrus Pushed Billy Ray Cyrus to Star on ‘Hannah Montana’ So Their “Family Could Be Together” - Hollywood Reporter\",\n            \"url\": \"http://www.hollywoodreporter.com/tv/tv-news/tish-cyrus-pushed-billy-ray-cyrus-star-hannah-montana-miley-cyrus-1235818962/\",\n            \"url_to_image\": \"https://www.hollywoodreporter.com/wp-content/uploads/2024/02/Billy-Ray-Cyrus-Tish-Cyrus-Miley-Cyrus-getty-H-2024.jpg?w=1024\"\n        },\n        {\n            \"id\": 116,\n            \"author\": \"Kim Posey\",\n            \"category\": {\n                \"id\": 3,\n                \"name\": \"entertainment\"\n            },\n            \"content\": \"DENVER (KDVR) Country star Toby Keith passed away this week at the age of 62 after a battle with stomach cancer.\\r\\nNow, Colorado doctors say his death has raised awareness about the disease that kills… [+1268 chars]\",\n            \"description\": \"Colorado doctors say the death of country star Toby Keith has raised awareness about the disease that kills around 11,000 people in the U.S. every year.\",\n            \"published_at\": \"2024-02-07T23:53:56.000Z\",\n            \"title\": \"After Toby Keith’s death, doctors warn: Stomach cancer symptoms easy to dismiss - FOX 31 Denver\",\n            \"url\": \"https://kdvr.com/news/health/toby-keith-stomach-cancer-symptoms-warning/\",\n            \"url_to_image\": \"https://kdvr.com/wp-content/uploads/sites/11/2024/02/Toby-Keith.jpg?w=1280\"\n        },\n        {\n            \"id\": 117,\n            \"author\": \"Shasta Darlington, Hande Atay Alam, Carma Hassan\",\n            \"category\": {\n                \"id\": 4,\n                \"name\": \"health\"\n            },\n            \"content\": \"The mayor of Rio de Janeiro, Eduardo Paes, has declared a state of public health emergency due to a dengue epidemic, according to CNN affiliate CNN Brasil.\\r\\nThe surge in dengue cases comes as Rio and… [+2003 chars]\",\n            \"description\": \"The mayor of Rio de Janeiro has declared a state of public health emergency due to a dengue epidemic just days before the start of the famed celebration.\",\n            \"published_at\": \"2024-02-08T00:57:00.000Z\",\n            \"title\": \"Rio declares dengue emergency as Brazil gears up for carnival - CNN\",\n            \"url\": \"https://www.cnn.com/2024/02/07/americas/rio-dengue-emergency-carnival-intl/index.html\",\n            \"url_to_image\": \"https://media.cnn.com/api/v1/images/stellar/prod/2024-02-06t164746z-306654176-rc2xw5apcaqx-rtrmadp-3-health-latam-dengue.jpg?c=16x9&q=w_800,c_fill\"\n        },\n        {\n            \"id\": 118,\n            \"author\": \"Alex Mitchell\",\n            \"category\": {\n                \"id\": 4,\n                \"name\": \"health\"\n            },\n            \"content\": \"This quick quiz won’t keep you up all night.\\r\\nA UK sleep aid company is sharing a straightforward, 10-question self-evaluation to help you determine if you’re a victim of dreaded insomnia. \\r\\nThe cond… [+1687 chars]\",\n            \"description\": \"“There is no single, main cause for insomnia,” Dr. Areti Vassilopoulos said.\",\n            \"published_at\": \"2024-02-08T00:22:00.000Z\",\n            \"title\": \"10-question quiz reveals if you struggle with insomnia — and why - New York Post \",\n            \"url\": \"https://nypost.com/2024/02/07/lifestyle/10-question-quiz-reveals-if-you-struggle-with-insomnia-and-why/\",\n            \"url_to_image\": \"https://nypost.com/wp-content/uploads/sites/2/2024/02/comp-circle.jpg?quality=75&strip=all&w=1024\"\n        },\n        {\n            \"id\": 119,\n            \"author\": \"https://www.facebook.com/BarneyLertenKTVZ/\",\n            \"category\": {\n                \"id\": 4,\n                \"name\": \"health\"\n            },\n            \"content\": \"It's the first reported case in Oregon in nearly a decade; caught early, 'little risk to the community'\\r\\nBEND, Ore. (KTVZ) -- Deschutes County Health Services said Wednesday it has confirmed a rare c… [+2576 chars]\",\n            \"description\": \"BEND, Ore. (KTVZ) -- Deschutes County Health Services said Wednesday it has confirmed a rare case of human plague in a local resident, Oregon's first in nearly a decade. They said the individual was likely infected by their symptomatic pet cat.\",\n            \"published_at\": \"2024-02-07T22:42:21.000Z\",\n            \"title\": \"Deschutes County health officials confirm rare case of human plague; resident likely infected by pet cat - KTVZ\",\n            \"url\": \"https://ktvz.com/health/2024/02/07/deschutes-county-health-officials-confirm-rare-case-of-human-plague-resident-likely-infected-by-pet-cat/\",\n            \"url_to_image\": \"https://ktvz.b-cdn.net/2020/08/Deschutes-County-Health-Services-logo.jpg\"\n        },\n        {\n            \"id\": 120,\n            \"author\": \"Kelly Meyerhofer\",\n            \"category\": {\n                \"id\": 4,\n                \"name\": \"health\"\n            },\n            \"content\": \"A University of Wisconsin-Madison student recently tested positive for tuberculosis, prompting campus health officials to notify more than 700 people who may have been exposed to the student.\\r\\nHere's… [+2707 chars]\",\n            \"description\": \"The student tested positive for TB in late January and was last on campus last semester. The risk of transmission is \\\"very low,\\\" a health official said.\",\n            \"published_at\": \"2024-02-07T21:41:33.000Z\",\n            \"title\": \"University of Wisconsin-Madison student tests positive for tuberculosis, prompting notification to more than 700 people - Milwaukee Journal Sentinel\",\n            \"url\": \"https://www.jsonline.com/story/news/education/2024/02/07/university-of-wisconsin-madison-student-tests-positive-for-tuberculosis/72271614007/\",\n            \"url_to_image\": \"https://www.jsonline.com/gcdn/presto/2020/11/05/PMJS/bdb8794c-f261-433c-9c79-5a929746e713-MJS_UW_MADISON_COVID_12890.jpg?crop=3899,2194,x0,y198&width=3200&height=1801&format=pjpg&auto=webp\"\n        },\n        {\n            \"id\": 121,\n            \"author\": \"Leah Sarnoff\",\n            \"category\": {\n                \"id\": 5,\n                \"name\": \"science\"\n            },\n            \"content\": \"While NASA is known for observing and researching outer space, the agency is also using a spacecraft to explore a frontier here on Earth -- the world's oceanic and atmospheric mysteries.\\r\\nNASA's PACE… [+2976 chars]\",\n            \"description\": \"NASA's PACE spacecraft is set to launch early Thursday morning from Florida.\",\n            \"published_at\": \"2024-02-08T01:49:06.000Z\",\n            \"title\": \"How NASA’s PACE mission hopes to examine oceanic and atmospheric mysteries - ABC News\",\n            \"url\": \"https://abcnews.go.com/US/nasas-pace-mission-hopes-examine-oceanic-atmospheric-mysteries/story?id=106986291\",\n            \"url_to_image\": \"https://i.abcnewsfe.com/a/726117ce-016d-4b32-b03e-3db8585acc71/pace-nasa-mission-ht-lv-240206_1707255163440_hpMain_16x9.jpg?w=1600\"\n        },\n        {\n            \"id\": 122,\n            \"author\": \"Ellyn Lapointe\",\n            \"category\": {\n                \"id\": 5,\n                \"name\": \"science\"\n            },\n            \"content\": \"A submersible, named Ran, disappeared last month after diving under Antarctica. The 23-foot-long instrument was just one of three scientific submersibles of its kind.\\r\\nUnlike the Titan submersible, w… [+3739 chars]\",\n            \"description\": \"There's another missing submersible: Scientists lost contact with a $3.6M sub revolutionizing climate science near Antarctica's \\\"Doomsday Glacier.\\\"\",\n            \"published_at\": \"2024-02-07T21:58:00.000Z\",\n            \"title\": \"Another missing submersible: $3.6M vessel vanishes by Doomsday Glacier - Business Insider\",\n            \"url\": \"https://www.businessinsider.com/submersible-missing-antarctica-doomsday-glacier-2024-2\",\n            \"url_to_image\": \"https://i.insider.com/65c3fd5d6fcb546d2d4d54d2?width=1200&format=jpeg\"\n        },\n        {\n            \"id\": 123,\n            \"author\": \"Jesse O’Neill\",\n            \"category\": {\n                \"id\": 5,\n                \"name\": \"science\"\n            },\n            \"content\": \"This extraterrestrial photo shoot was far from lo-fi.\\r\\nNASA’s Juno mission passed within 930 miles of Jupiter’s volcanic third largest moon lo Saturday, capturing stunning images of the most volcanic… [+2997 chars]\",\n            \"description\": \"The spacecraft passed within 930 miles of Jupiter’s volcanic third largest moon lo last weekend, capturing stunning images of the most volcanic world in our solar system.\",\n            \"published_at\": \"2024-02-07T21:57:00.000Z\",\n            \"title\": \"Spectacular images of Jupiter's volcanic moon lo captured by NASA's Juno mission - New York Post \",\n            \"url\": \"https://nypost.com/2024/02/07/news/nasas-juno-mission-photographs-jupiters-volcanic-moon-lo/\",\n            \"url_to_image\": \"https://nypost.com/wp-content/uploads/sites/2/2024/02/1979-image-shows-ios-nightside-76095274.jpg?quality=75&strip=all&w=1024\"\n        },\n        {\n            \"id\": 124,\n            \"author\": \"George Dvorsky\",\n            \"category\": {\n                \"id\": 5,\n                \"name\": \"science\"\n            },\n            \"content\": \"It may have been one small step for Neil, McCandless quipped in reference to Armstrongs famous words, but its a heck of a big leap for me. As The New York Timesreported at the time, Free of any lifel… [+606 chars]\",\n            \"description\": \"“It may have been one small step for Neil, but it’s a heck of a big leap for me.”\",\n            \"published_at\": \"2024-02-07T21:00:00.000Z\",\n            \"title\": \"Pulse-Pounding Photos Recall NASA's Historic First Untethered Spacewalk, 40 Years On - Gizmodo\",\n            \"url\": \"https://gizmodo.com/photos-nasa-historic-untethered-spacewalk-40-years-1851234166\",\n            \"url_to_image\": \"https://i.kinja-img.com/image/upload/c_fill,h_675,pg_1,q_80,w_1200/20ad635eeb48e17a1e75601c827947c3.jpg\"\n        },\n        {\n            \"id\": 125,\n            \"author\": \"Eva Terry\",\n            \"category\": {\n                \"id\": 5,\n                \"name\": \"science\"\n            },\n            \"content\": \"The suns magnetic poles are about to flip, and it could cause lower latitude northern lights, more intense solar storms and potential danger for astronauts and satellite communication. However, exper… [+4565 chars]\",\n            \"description\": \"A pole reversal in 1859 brought the northern lights to San Francisco and the Rockies\",\n            \"published_at\": \"2024-02-07T20:37:00.000Z\",\n            \"title\": \"The sun's magnetic poles will flip in 2024. Here's what that means - Deseret News\",\n            \"url\": \"https://www.deseret.com/2024/2/7/24062307/sun-magnetic-pole-reversal-2024\",\n            \"url_to_image\": \"https://deseret.brightspotcdn.com/dims4/default/c0f9ecb/2147483647/strip/true/crop/2400x1370+0+168/resize/1461x834!/quality/90/?url=https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2Fo7qQD9AI78IXWXQ_t97kda3OC_Q%3D%2F0x0%3A2400x1596%2F2400x1596%2Ffilters%3Afocal%281183x853%3A1184x854%29%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F21944430%2Fmerlin_2834840.jpg\"\n        },\n        {\n            \"id\": 126,\n            \"author\": \"Robert Lea\",\n            \"category\": {\n                \"id\": 5,\n                \"name\": \"science\"\n            },\n            \"content\": \"Space is part of Future US Inc, an international media group and leading digital publisher. Visit our corporate site.\\r\\n©\\r\\nFuture US, Inc. Full 7th Floor, 130 West 42nd Street,\\r\\nNew York,\\r\\nNY 10036.\",\n            \"description\": \"'We had always assumed that they were spherical. We were very surprised that they turned out to be oblate spheroids, pretty similar to Smarties!'\",\n            \"published_at\": \"2024-02-07T20:00:10.000Z\",\n            \"title\": \"Surprise! Baby exoplanets might look like Smarties candies rather than spheres - Space.com\",\n            \"url\": \"https://www.space.com/infant-exoplanets-shape-smarties-candies\",\n            \"url_to_image\": \"https://cdn.mos.cms.futurecdn.net/qi4wjewvXmvQAdazUs52um-1200-80.png\"\n        },\n        {\n            \"id\": 127,\n            \"author\": \"Andrey Feldman\",\n            \"category\": {\n                \"id\": 5,\n                \"name\": \"science\"\n            },\n            \"content\": \"Our universe is expanding at an ever-accelerating rate — a phenomenon that all theories of cosmology agree upon but none can fully explain. Now, a new theoretical study offers an intriguing solution:… [+4254 chars]\",\n            \"description\": \"The universe is expanding faster and faster, but not all scientists agree that dark energy is the cause. Perhaps, instead, our universe keeps colliding with and absorbing smaller 'baby universes,' a new theoretical study suggests.\",\n            \"published_at\": \"2024-02-07T19:50:28.000Z\",\n            \"title\": \"Our universe is merging with 'baby universes', causing it to expand, new theoretical study suggests - Livescience.com\",\n            \"url\": \"https://www.livescience.com/space/cosmology/our-universe-is-merging-with-baby-universes-causing-it-to-expand-new-theoretical-study-suggests\",\n            \"url_to_image\": \"https://cdn.mos.cms.futurecdn.net/EL9esZHrn9x4FXpHrBFGdi-1200-80.jpg\"\n        },\n        {\n            \"id\": 128,\n            \"author\": \"Leah Sarnoff\",\n            \"category\": {\n                \"id\": 5,\n                \"name\": \"science\"\n            },\n            \"content\": \"Over 166 million years after its time roaming the Earth, scientists announced the discovery of a winged dinosaur skeleton that was found on the Isle of Skye in Scotland.\\r\\nIn findings published in the… [+2987 chars]\",\n            \"description\": \"The pterosaur, Ceoptera evansae, lived over 166 million years ago.\",\n            \"published_at\": \"2024-02-07T19:23:56.000Z\",\n            \"title\": \"New flying dinosaur skeleton discovered on Isle of Skye in Scotland - ABC News\",\n            \"url\": \"https://abcnews.go.com/International/new-flying-dinosaur-skeleton-discovered-isle-skye-scotland/story?id=107026985\",\n            \"url_to_image\": \"https://i.abcnewsfe.com/a/6355fd28-8258-49d5-ba4b-727ad65267b3/dinosaur-1-ht-er-240207_1707323467998_hpMain_16x9.jpg?w=1600\"\n        },\n        {\n            \"id\": 129,\n            \"author\": \"Neuroscience News\",\n            \"category\": {\n                \"id\": 5,\n                \"name\": \"science\"\n            },\n            \"content\": \"Summary: Researchers revealed that evaluating parental traits for neurodevelopmental and psychiatric disorders offers a more precise prediction for these conditions in children than genetic testing a… [+12304 chars]\",\n            \"description\": \"Researchers revealed that evaluating parental traits for neurodevelopmental and psychiatric disorders offers a more precise prediction for these conditions in children than genetic testing alone.\",\n            \"published_at\": \"2024-02-07T19:20:51.000Z\",\n            \"title\": \"Parental Traits May Influence Neurodevelopmental Disorders - Neuroscience News\",\n            \"url\": \"https://neurosciencenews.com/parental-traits-neurodevelopment-25578/\",\n            \"url_to_image\": \"https://neurosciencenews.com/files/2024/02/parent-trait-neurodevelopment-neurosicnce.jpg\"\n        },\n        {\n            \"id\": 130,\n            \"author\": \"Ryan Young\",\n            \"category\": {\n                \"id\": 6,\n                \"name\": \"sports\"\n            },\n            \"content\": \"Geno Auriemma trails only Mike Krzyzewski and Tara VanDerveer on the college basketball all-time wins list. (David Butler II/USA Today)\\r\\nGeno Auriemma joined an elite group of college basketball coac… [+2361 chars]\",\n            \"description\": \"Geno Auriemma trails only Mike Krzyzewski and Tara VanDerveer on the college basketball all-time wins list.\",\n            \"published_at\": \"2024-02-08T03:41:00.000Z\",\n            \"title\": \"UConn’s Geno Auriemma becomes third college coach in history to reach 1,200 career wins - Yahoo Sports\",\n            \"url\": \"https://sports.yahoo.com/uconns-geno-auriemma-becomes-third-college-coach-in-history-to-reach-1200-career-wins-021209514.html\",\n            \"url_to_image\": \"https://s.yimg.com/ny/api/res/1.2/Q1X_FVyg5DMx.Ln6MSrZhw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2024-01/5c3e1220-c627-11ee-ad1d-12679dda85c4\"\n        },\n        {\n            \"id\": 131,\n            \"author\": \"Taylor Wirth\",\n            \"category\": {\n                \"id\": 6,\n                \"name\": \"sports\"\n            },\n            \"content\": \"The Brock Purdy quarterback debate rages on, and there appears to be a new development every week. \\r\\nWhile some continue to debate his place among NFL signal-callers, the second-year quarterback has … [+1542 chars]\",\n            \"description\": \"Brock Purdy is proving to be a problem for teams in the second half of games after two consecutive come-from-behind wins in the playoffs.\",\n            \"published_at\": \"2024-02-08T02:43:54.000Z\",\n            \"title\": \"Glazer says Purdy is ‘unflappable,' a ‘terror' in second half of games - NBC Sports Bay Area\",\n            \"url\": \"http://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/brock-purdy-unflappable-terror-jay-glazer/1700267/\",\n            \"url_to_image\": \"https://media.nbcsportsbayarea.com/2024/01/GettyImages-1968887274-e1706564266198.jpg?quality=85&strip=all&crop=0px%2C76px%2C1200px%2C675px&resize=1200%2C675\"\n        },\n        {\n            \"id\": 132,\n            \"author\": \"The Associated Press\",\n            \"category\": {\n                \"id\": 6,\n                \"name\": \"sports\"\n            },\n            \"content\": \"Winnipeg Jets defenseman Brenden Dillon has been suspended three games for an illegal check to the head of Pittsburgh Penguins forward Noel Acciari, the NHLs Department of Player Safety announced Wed… [+1707 chars]\",\n            \"description\": \"The NHL estimated Dillon would forfeit over $60,000 with this suspension.\",\n            \"published_at\": \"2024-02-08T02:27:00.000Z\",\n            \"title\": \"NHL suspends Winnipeg's Brenden Dillon after hit on Penguins' Noel Acciari - WTAE Pittsburgh\",\n            \"url\": \"https://www.wtae.com/article/brenden-dillon-suspension-noel-acciari-penguins-jets/46675255\",\n            \"url_to_image\": \"https://kubrick.htvapps.com/htv-prod-media.s3.amazonaws.com/images/gettyimages-1961661334-65c416e482875.jpg?crop=1.00xw:0.705xh;0,0.261xh&resize=1200:*\"\n        },\n        {\n            \"id\": 133,\n            \"author\": \"The Athletic Staff\",\n            \"category\": {\n                \"id\": 6,\n                \"name\": \"sports\"\n            },\n            \"content\": \"By Mark Puleo, Stewart Mandel, Chris Vannini, Richard Deitsch and Mike Vorkunov\\r\\nLess than a month after Nick Saban retired from his post at Alabama, ESPN announced Wednesday the legendary coach will… [+4309 chars]\",\n            \"description\": \"Saban, 72, retired from coaching on Jan. 10 after 28 years of coaching, which included seven national championships.\",\n            \"published_at\": \"2024-02-08T02:23:10.000Z\",\n            \"title\": \"Nick Saban to join ‘College GameDay’ cast as analyst, contribute to ESPN’s draft coverage - The Athletic\",\n            \"url\": \"https://theathletic.com/5258569/2024/02/07/nick-saban-college-gameday-espn/\",\n            \"url_to_image\": \"https://cdn.theathletic.com/app/uploads/2024/02/07165547/GettyImages-905492012-scaled.jpg\"\n        },\n        {\n            \"id\": 134,\n            \"author\": \"Vlad\",\n            \"category\": {\n                \"id\": 7,\n                \"name\": \"technology\"\n            },\n            \"content\": \"Yesterday we heard that the upcoming Google Pixel Fold 2 might skip the Tensor G3 chipset of the Pixel 8 and Pixel 8 Pro and jump straight to the Tensor G4 in the Pixel 9 and 9 Pro, which probably al… [+1652 chars]\",\n            \"description\": \"It shows a very different camera bump compared to its predecessor. Yesterday we heard that the upcoming Google Pixel Fold 2 might skip the Tensor G3...\",\n            \"published_at\": \"2024-02-07T23:43:02.000Z\",\n            \"title\": \"Google Pixel Fold 2 hands-on image leaks - GSMArena.com news - GSMArena.com\",\n            \"url\": \"https://www.gsmarena.com/google_pixel_fold_2_handson_image_leaks-news-61518.php\",\n            \"url_to_image\": \"https://fdn.gsmarena.com/imgroot/news/24/02/google-pixel-fold-2-leaked-image/-952x498w6/gsmarena_000.jpg\"\n        },\n        {\n            \"id\": 135,\n            \"author\": \"VOA Learning English\",\n            \"category\": {\n                \"id\": 7,\n                \"name\": \"technology\"\n            },\n            \"content\": \"Technology company Apples new computing device, the Vision Pro headset, became available in stores last week.\\r\\nThe device uses augmented reality technology which has been available for years. But App… [+4044 chars]\",\n            \"description\": \"Apple recently released the Vision Pro headset, a computing device worn on the head. The device uses what Apple calls “spatial computing” aimed at changing the way people interact with the world.\",\n            \"published_at\": \"2024-02-07T22:05:00.000Z\",\n            \"title\": \"Apple: Vision Pro Headset Enables ‘Spatial Computing’ - VOA Learning English\",\n            \"url\": \"https://learningenglish.voanews.com/a/apple-says-its-new-vision-pro-headset-enables-spatial-computing-/7472103.html\",\n            \"url_to_image\": \"https://gdb.voanews.com/e3ec4095-7811-43ca-8a2c-752b33effc05_w1200_r1.jpg\"\n        },\n        {\n            \"id\": 136,\n            \"author\": \"Vlad\",\n            \"category\": {\n                \"id\": 7,\n                \"name\": \"technology\"\n            },\n            \"content\": \"OnePlus switched things up this year, not only releasing the flagship 12 across the world, but also the 12R alongside it. The R family was previously an India-only affair, so this is a pretty big dea… [+1007 chars]\",\n            \"description\": \"Find out how it fared in our testing. OnePlus switched things up this year, not only releasing the flagship 12 across the world, but also the 12R alongside...\",\n            \"published_at\": \"2024-02-07T21:59:01.000Z\",\n            \"title\": \"Our OnePlus 12R video review is out - GSMArena.com news - GSMArena.com\",\n            \"url\": \"https://www.gsmarena.com/our_oneplus_12r_video_review_is_out-news-61517.php\",\n            \"url_to_image\": \"https://fdn.gsmarena.com/imgroot/news/24/02/oneplus-12r-video-review/-952x498w6/gsmarena_000.jpg\"\n        },\n        {\n            \"id\": 137,\n            \"author\": \"Tobias Mann\",\n            \"category\": {\n                \"id\": 7,\n                \"name\": \"technology\"\n            },\n            \"content\": \"With the launch of its Embedded+ architecture yesterday, AMD effectively posed the question: Why choose one compute architecture when you can have five?\\r\\nThe House of Zen's latest offering pairs a x6… [+3460 chars]\",\n            \"description\": \"What an Arm-ful of x86, Vega graphics, XDNA AI, and FPGA circuitry\",\n            \"published_at\": \"2024-02-07T21:53:00.000Z\",\n            \"title\": \"AMD crams five compute architectures onto a single board - The Register\",\n            \"url\": \"https://www.theregister.com/2024/02/07/amd_compute_systems/\",\n            \"url_to_image\": \"https://regmedia.co.uk/2024/02/07/sapphire_amd_embedded_mb.jpg\"\n        },\n        {\n            \"id\": 138,\n            \"author\": \"Stephanie Palazzolo, Amir Efrati\",\n            \"category\": {\n                \"id\": 7,\n                \"name\": \"technology\"\n            },\n            \"content\": \"OpenAIs first major product, ChatGPT, proved so popular that it sparked a generation of wannabes. But as rivals like Google catch up, OpenAI is hustling to release a product that could prove almost a… [+560 chars]\",\n            \"description\": \"OpenAI’s first major product, ChatGPT, proved so popular that it sparked a generation of wannabes. But as rivals like Google catch up, OpenAI is hustling to release a product that could prove almost as revolutionary. OpenAI is developing a form of agent softw…\",\n            \"published_at\": \"2024-02-07T21:50:00.000Z\",\n            \"title\": \"OpenAI Shifts AI Battleground to Software That Operates Devices, Automates Tasks - The Information\",\n            \"url\": \"https://www.theinformation.com/articles/openai-shifts-ai-battleground-to-software-that-operates-devices-automates-tasks\",\n            \"url_to_image\": \"https://tii.imgix.net/production/articles/12243/74768ff0-beac-46ba-be2a-5b8fdd9470c6.png?fm=jpg&auto=compress&w=1200&frame=0\"\n        },\n        {\n            \"id\": 139,\n            \"author\": \"Zack Zwiezen\",\n            \"category\": {\n                \"id\": 7,\n                \"name\": \"technology\"\n            },\n            \"content\": \"A GameStop tweet promoting a demo day when folks can come in and play some games on Xbox consoles using Microsoft Game Pass has injected more chaos and controversy into the ongoing, apocalyptic Xbox … [+3325 chars]\",\n            \"description\": \"A fairly boring ad about an Xbox demo day has set off a whole lot of theory crafting and discourse\",\n            \"published_at\": \"2024-02-07T21:45:25.000Z\",\n            \"title\": \"GameStop Ad Promoting 'Microsoft' Game Pass Leads To More Xbox Chaos - Kotaku\",\n            \"url\": \"https://kotaku.com/xbox-microsoft-game-pass-gamestop-ad-twitter-demo-days-1851236742\",\n            \"url_to_image\": \"https://i.kinja-img.com/image/upload/c_fill,h_675,pg_1,q_80,w_1200/8e7feffbeea10dabdbe122c253fc4cf2.jpg\"\n        },\n        {\n            \"id\": 140,\n            \"author\": \"Kyle Hilliard\",\n            \"category\": {\n                \"id\": 7,\n                \"name\": \"technology\"\n            },\n            \"content\": \"After getting pushed into 2024, we have a release date for the game's next big update. New Game +, new suits, and other upgrades are on March 7. Along with those vague content promises, Insomniac als… [+129 chars]\",\n            \"description\": \"After getting pushed into 2024, we have a release date for the game's next big update.\",\n            \"published_at\": \"2024-02-07T21:12:00.000Z\",\n            \"title\": \"Marvel's Spider-Man 2's New Game+, New Suits, And More Are Coming Next Month - Game Informer\",\n            \"url\": \"https://www.gameinformer.com/2024/02/07/marvels-spider-man-2s-new-game-new-suits-and-more-are-coming-next-month\",\n            \"url_to_image\": \"https://www.gameinformer.com/sites/default/files/styles/thumbnail/public/2023/10/19/daa2bb27/msm2_story_duo.jpg\"\n        },\n        {\n            \"id\": 141,\n            \"author\": \"Dylan Horetski\",\n            \"category\": {\n                \"id\": 7,\n                \"name\": \"technology\"\n            },\n            \"content\": \"YouTube Shorts has taken a shot at TikTok with their latest feature, bringing vertical livestreams into Shorts feed for the first time. \\r\\nLaunched back in September 2020, YouTube Shorts has helped sk… [+1582 chars]\",\n            \"description\": \"YouTube Shorts has just added vertical livestreams in the Shorts feed, taking a shot at one of TikTok's most popular features.\",\n            \"published_at\": \"2024-02-07T20:45:24.000Z\",\n            \"title\": \"YouTube Shorts takes shot at TikTok with new livestream feature - Dexerto\",\n            \"url\": \"https://www.dexerto.com/tech/youtube-shorts-takes-shot-at-tiktok-with-new-livestream-feature-2521316/\",\n            \"url_to_image\": \"https://editors.dexerto.com/wp-content/uploads/2023/01/10/HandHoldingPhoneYouTubeLogo.jpg\"\n        },\n        {\n            \"id\": 142,\n            \"author\": \"Kevin Purdy\",\n            \"category\": {\n                \"id\": 7,\n                \"name\": \"technology\"\n            },\n            \"content\": \"Enlarge/ A microSD card of \\\"unknown origin\\\" is soldered onto a USB interface board to serve as makeshift NAND storage.\\r\\n85\\r\\nWhen a German data recovery firm recently made a study of the failed flash … [+3838 chars]\",\n            \"description\": \"Rejected chips, hidden microSD cards plague the USB stick market.\",\n            \"published_at\": \"2024-02-07T20:39:19.000Z\",\n            \"title\": \"Those free USB sticks in your drawer are somehow crappier than you thought - Ars Technica\",\n            \"url\": \"https://arstechnica.com/gadgets/2024/02/rejected-chips-hidden-microsd-cards-plague-the-usb-stick-market/\",\n            \"url_to_image\": \"https://cdn.arstechnica.net/wp-content/uploads/2024/02/cbl1-760x380.jpg\"\n        },\n        {\n            \"id\": 143,\n            \"author\": \"Eddie Makuch\",\n            \"category\": {\n                \"id\": 7,\n                \"name\": \"technology\"\n            },\n            \"content\": \"Microsoft's recent announcement of 1,900 layoffs within its Xbox division, including Activision Blizzard employees who joined Microsoft with the buyout, has prompted the United States government to c… [+1528 chars]\",\n            \"description\": \"Microsoft contradicted its own representations of what would happen post-merger, the FTC says.\",\n            \"published_at\": \"2024-02-07T20:02:48.000Z\",\n            \"title\": \"Microsoft Is Undermining Activision's Independence With Latest Layoffs, FTC Says - GameSpot\",\n            \"url\": \"https://www.gamespot.com/articles/microsoft-is-undermining-activisions-independence-with-latest-layoffs-ftc-says/1100-6520894/\",\n            \"url_to_image\": \"https://www.gamespot.com/a/uploads/screen_kubrick/1179/11799911/4256425-gamepass.jpg\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Search Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/articles/search?category_id=2&limit=5&page=1&search=economy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"articles",
+								"search"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "2"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "economy"
+								}
+							]
+						},
+						"description": "Returns a list of articles from the database, if is empty, it gets the articles from the external api and it saves in the database for future requests.  \n  \nThis endpoint allows pagination with **limit**\\-**page**, and filter by **category_id** and by title in the query **search**"
+					},
+					"response": [
+						{
+							"name": "Filtered and paginated",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/articles/search?category_id=2&limit=5&page=1&search=economy",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"articles",
+										"search"
+									],
+									"query": [
+										{
+											"key": "category_id",
+											"value": "2"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "search",
+											"value": "economy"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"dff98a5861f5f4e2ef19e90e58b241b0\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "bfe53891-7264-4f8a-82f3-a9b8cf701f10"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.137141"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=3.29, sql.active_record;dur=57.95, instantiation.active_record;dur=0.81, process_action.action_controller;dur=86.37"
+								},
+								{
+									"key": "vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"status\": {\n        \"code\": 200,\n        \"message\": \"Ok\",\n        \"sub_code\": 20000\n    },\n    \"data\": {\n        \"items\": [\n            {\n                \"id\": 105,\n                \"author\": \"Joe Leahy\",\n                \"category\": {\n                    \"id\": 2,\n                    \"name\": \"business\"\n                },\n                \"content\": \"Chinas consumer prices fell at the fastest rate in 15 years in January, missing analysts forecasts and underlining the challenges for policymakers trying to revive investor confidence in the worlds s… [+3747 chars]\",\n                \"description\": \"Analysts warn prolonged price declines will undermine business and consumer confidence\",\n                \"published_at\": \"2024-02-08T03:42:32.000Z\",\n                \"title\": \"China's prices fall at fastest rate in 15 years as economy battles deflation - Financial Times\",\n                \"url\": \"https://www.ft.com/content/14b056b2-ab71-4f32-b829-9493c4bfd650\",\n                \"url_to_image\": \"https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fwww.ft.com%2F__origami%2Fservice%2Fimage%2Fv2%2Fimages%2Fraw%2Fhttps%253A%252F%252Fd1e00ek4ebabms.cloudfront.net%252Fproduction%252Fd2e35004-c901-4a08-9b56-0335d9455728.jpg%3Fsource%3Dnext-article%26fit%3Dscale-down%26quality%3Dhighest%26width%3D700%26dpr%3D1?source=next-opengraph&fit=scale-down&width=900\"\n            }\n        ],\n        \"pagination\": {\n            \"currentPage\": 1,\n            \"itemsPerPage\": 5,\n            \"totalItems\": 1,\n            \"totalPages\": 1,\n            \"nextPage\": null,\n            \"prevPage\": null,\n            \"fromItem\": 1,\n            \"toItem\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Article",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/articles/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"articles",
+								"search"
+							]
+						},
+						"description": "Retrieves on article"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/articles/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"articles",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e03415f1dcd19bdd0269343a17d4dc6\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "4af7164f-6342-4c7c-ae55-c48311126af0"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.147690"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=3.82, sql.active_record;dur=11.78, instantiation.active_record;dur=1.32, process_action.action_controller;dur=96.63"
+								},
+								{
+									"key": "vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"status\": {\n        \"code\": 200,\n        \"message\": \"Ok\",\n        \"sub_code\": 20000\n    },\n    \"data\": {\n        \"id\": 1,\n        \"author\": \"By <a href=\\\"/profiles/kathleen-magramo\\\">Kathleen Magramo</a>, <a href=\\\"/profiles/amir-vera\\\">Amir Vera</a> and Deva Lee, CNN\",\n        \"category\": {\n            \"id\": 1,\n            \"name\": \"general\"\n        },\n        \"content\": \"The full Hamas response to a proposal for a ceasefire and the delivery of humanitarian aid in exchange for the release of hostages held in Gaza proposes three phases, each lasting 45 days. \\r\\nCNN has … [+2138 chars]\",\n        \"description\": \"Israeli Prime Minister Benjamin Netanyahu dismissed Hamas' proposals for a ceasefire and hostage deal in Gaza. Follow for live updates.\",\n        \"published_at\": \"2024-02-08T06:01:00.000Z\",\n        \"title\": \"The latest on the Israel-Hamas war: Live updates - CNN\",\n        \"url\": \"https://www.cnn.com/middleeast/live-news/israel-hamas-war-gaza-news-02-08-24/index.html\",\n        \"url_to_image\": \"https://cdn.cnn.com/cnnnext/dam/assets/240201151428-03-gaza-unrwa-suspension-super-tease.jpeg\"\n    }\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/articles/10000",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"articles",
+										"10000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "52491fe4-f8da-4d4b-a949-2962eba91caa"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.887880"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=1.37, sql.active_record;dur=5.42, instantiation.active_record;dur=0.27, process_action.action_controller;dur=866.32"
+								},
+								{
+									"key": "vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"status\": {\n        \"code\": 404,\n        \"message\": \"Not Found\",\n        \"sub_code\": 40400\n    },\n    \"errors\": [\n        \"Recurso con id 10000 no encontrado\"\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "Collection to list articles, search by title, category_id, and pagination with limit and page; and to retrieve one article."
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "List Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						},
+						"description": "Get the list of categories from db"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"59c8f4f8f0c4ed658ddc7487c80edce6\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "3223a638-dd29-4b96-8302-d6d68e66c115"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.147982"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=1.65, sql.active_record;dur=5.06, instantiation.active_record;dur=0.31, process_action.action_controller;dur=40.34"
+								},
+								{
+									"key": "vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"status\": {\n        \"code\": 200,\n        \"message\": \"Ok\",\n        \"sub_code\": 20000\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"general\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"business\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"entertainment\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"health\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"science\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"sports\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"technology\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/categories/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"10"
+							]
+						},
+						"description": "Retrieves one category"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/categories/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"be6e6345bca578b37f8f80ab7a3cfacb\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "37bdd15a-1dd5-4faa-ad41-17d108db4585"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.083699"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=2.48, sql.active_record;dur=6.83, instantiation.active_record;dur=0.31, process_action.action_controller;dur=17.79"
+								},
+								{
+									"key": "vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"status\": {\n        \"code\": 200,\n        \"message\": \"Ok\",\n        \"sub_code\": 20000\n    },\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"general\"\n    }\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/categories/1000",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										"1000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "832c6403-751c-40e5-b1fe-3a0954b5f53c"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.070439"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=3.16, sql.active_record;dur=6.17, instantiation.active_record;dur=0.10, process_action.action_controller;dur=16.69"
+								},
+								{
+									"key": "vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"status\": {\n        \"code\": 404,\n        \"message\": \"Not Found\",\n        \"sub_code\": 40400\n    },\n    \"errors\": [\n        \"Recurso con id 1000 no encontrado\"\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "Collection to list categories, created by default in the seed data."
+		}
+	]
+}

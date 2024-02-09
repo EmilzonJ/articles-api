@@ -1,6 +1,62 @@
 # README
 Articles API
 
+Technologies used:
+
+- Docker compose
+- Postgres SQL
+- Ruby on Rails (API only)
+    - Blueprinter (serialization)
+    - Faraday (http client)
+    - Pagy (backend pagination)
+    - Testing
+        - RSpec (testing)
+        - FactoryBot (factories for testing)
+        - Faker (Fake data for testing)
+        - Shoulda Matchers (For Asserts in testing)
+        - SimpleCov (Coverage Report)
+    - Rubocop (Linting)
+    - Design Patterns
+        - Service Object
+        - Query Object
+
+Folder Structure:
+
+- app
+    - controllers
+      - api
+        - v1
+          - articles_controller.rb
+          - categories_controller.rb
+    - models
+      - article.rb
+      - category.rb
+    - services
+      - api
+        - v1
+          - article_service.rb
+          - category_service.rb
+        - external
+          - news_api_service.rb
+        - internal
+          - article_populate_service.rb
+    - queries
+      - category
+        - get_all_query.rb
+        - get_query.rb
+      - article
+        - get_all_query.rb
+        - get_query.rb
+        - search_query.rb
+    - blueprints
+      - api
+        - v1
+          - article_blueprint.rb
+          - category_blueprint.rb
+      - external
+        - v1
+          - api_article_blueprint.rb
+
 ## Env File
 
 Duplicate `.env.dev-example ` and rename the duplicate to `.env.development`
@@ -43,6 +99,12 @@ If you need to up the database, you can run:
 docker exec articles-api  rails db:prepare
 ```
 
+If the categories are not created, you can run:
+
+```bash
+docker exec articles-api  rails db:seed
+```
+
 If you use a gem that requires a bundle install, you can run:
 
 ```bash
@@ -78,3 +140,10 @@ To view the report, open the `index.html` file in this directory in your web bro
 The report shows a list of all your files, along with the percentage of lines covered by tests in each file. It also
 shows a total coverage percentage at the top.
 
+# API Documentation
+The API documentation is in the 'docs' directory. Is a Postman collection that you can import to your Postman app.
+
+## Administration
+You can visit the admin panel at `http://localhost:3000/admin` and use the following credentials:
+- username: admin
+- password: admin
