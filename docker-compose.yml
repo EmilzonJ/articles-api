@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  api:
+    container_name: articles-api
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    env_file:
+      - .env.development
+    volumes:
+      - .:/articles-api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+    links:
+      - db
+    networks:
+      - articles-api
+  
+  db:
+    container_name: articles-api-db
+    image: postgres
+    restart: always
+    command: postgres -c listen_addresses='*'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/var/lib/postgresql/data/placeholder/
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
+    networks:
+      - articles-api
+
+networks:
+  articles-api:
+    name: articles-api
+
+volumes:
+  db:
+    driver: local

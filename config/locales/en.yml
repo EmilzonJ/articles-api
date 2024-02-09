@@ -1,0 +1,4 @@
+en:
+  errors:
+    messages:
+      not_found: 'Resource with id %{id} not found'

@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch("RAILS_DB_HOST") || 'localhost' %>
+  pool: 10
+  user: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: article_be_dev
+
+test:
+  <<: *default
+  database: article_be_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>

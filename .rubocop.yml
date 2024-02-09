@@ -1,0 +1,25 @@
+require: rubocop-rails
+
+ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Style/MethodLength:
+  Max: 15
+
+AllCops:
+  TargetRubyVersion: 3.0.6
+  TargetRailsVersion: 7.0.8
+  NewCops: enable
+  Rails:
+    Enabled: true
+  Exclude:
+    - 'db/**/*'
+
+
+
