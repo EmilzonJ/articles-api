@@ -1,0 +1,30 @@
+---
+engine_version: 0.4.26
+file_version: 2024-02-09 08:44:42.295761000 Z
+resources:
+- name: article
+  preferences:
+    scopes:
+    - visible: false
+      name: search
+    custom_sql: SELECT "articles".* FROM "articles" ORDER BY "articles".id, "articles".category_id
+    icon: book
+  updated_at: 2024-02-09 08:44:42.295761000 +00:00
+- name: category
+  preferences:
+    icon: list-check
+  updated_at: 2024-02-09 08:44:28.549466000 +00:00
+configs:
+- key: header.links
+  updated_at: 2024-02-09 08:41:16.965992000 +00:00
+queries: []
+dashboards: []
+forms: []
+alerts: []
+api_configs:
+- id: 1
+  name: origin
+  url: "/"
+  preferences: {}
+  description: 
+  updated_at: 2024-02-09 08:41:16.973390000 +00:00
